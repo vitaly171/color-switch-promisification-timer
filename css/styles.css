@@ -1,0 +1,11 @@
+.list {
+  list-style: none;
+}
+.item {
+  display: flex;
+  margin-bottom: 5px;
+}
+.itemLink {
+  cursor: pointer;
+  text-decoration: none;
+}
