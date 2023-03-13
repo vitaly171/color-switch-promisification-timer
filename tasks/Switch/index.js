@@ -10,8 +10,10 @@ const colors = [
 const refs = {
   startBtn: document.querySelector('[data-action="start"]'),
   stopBtn: document.querySelector('[data-action="stop"]'),
-  body: document.querySelector("body"),
+  circle: document.querySelector('[data-action="circle"]'),
 };
+
+console.log(refs.circle);
 
 const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -30,7 +32,7 @@ function onStopClick() {
 }
 
 function changeColor() {
-  refs.body.style.backgroundColor =
+  refs.circle.style.backgroundColor =
     colors[randomIntegerFromInterval(0, colors.length - 1)];
 }
 

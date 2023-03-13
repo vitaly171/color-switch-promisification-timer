@@ -1,3 +1,6 @@
+body {
+  background-color: antiquewhite;
+}
 .list {
   list-style: none;
 }
@@ -26,6 +29,7 @@
   height: 30px;
 }
 .colorBox {
+  background-color: aliceblue;
   margin-top: 20px;
   width: 250px;
   height: 250px;
