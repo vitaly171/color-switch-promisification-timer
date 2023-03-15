@@ -175,29 +175,7 @@
 .button:hover .wakeup:nth-child(2) .character__face::after {
   animation: eye_2 5s linear infinite;
 }
-.button--hoo:hover .wakeup .charactor__face2::before,
-.button--hoo:hover .wakeup .charactor__face2::after {
-  height: 20px;
-}
-.button--hoo:hover .wakeup .charactor__body {
-  animation: body_hoo_wakeup 0.2s ease;
-  animation-fill-mode: forwards;
-  border-top: solid 6px #385082;
-}
-.button--hoo:hover .wakeup .charactor__body::before,
-.button--hoo:hover .wakeup .charactor__body::after {
-  top: -12px;
-  border-top: solid 5px #385082;
-}
-.button--pen:hover .wakeup .charactor__face2 {
-  animation: face_pen_wakeup 0.2s ease;
-  animation-fill-mode: forwards;
-}
-.button--pen:hover .wakeup .charactor__face2::before,
-.button--pen:hover .wakeup .charactor__face2::after {
-  top: -12px;
-  height: 18px;
-}
+
 @keyframes sleep {
   0% {
     height: 36px;
@@ -354,9 +332,15 @@
 /* Timer */
 .timer {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   width: 900px;
   height: 200px;
-  background-color: #ff8108;
+  background-color: #f4cf47;
+  border: solid 3px black;
+  border-radius: 50px 50px 40px 40px / 50px 50px 40px 40px;
+  cursor: pointer;
 }
 .field {
   display: flex;
@@ -364,9 +348,6 @@
   align-items: center;
   width: 200px;
   height: 80px;
-  padding: 20px;
-  background-color: aliceblue;
-  margin: 20px;
 }
 
 .value {
@@ -376,8 +357,7 @@
   font-size: 50px;
   width: 60px;
   height: 60px;
-  margin-bottom: 10px;
-  background-color: rgb(34, 151, 151);
+  /* background-color: rgb(34, 151, 151); */
 }
 
 .label {

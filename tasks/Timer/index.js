@@ -1,33 +1,48 @@
-// new CountdownTimer({
-//   selector: "#timer-1",
-//   targetDate: new Date("Jul 17, 2019"),
-// });
+class CountdownTimer {
+  constructor({ selector, targetDate }) {
+    this.timerEl = document.querySelector(selector);
+    this.targetDate = targetDate;
 
-const startDate = Date.now();
-console.log(startDate);
-const finishTime = new Date("12/31/2024").getTime();
-console.log(finishTime);
-/*
- * Оставшиеся дни: делим значение UTC на 1000 * 60 * 60 * 24, количество
- * миллисекунд в одном дне (миллисекунды * секунды * минуты * часы)
- */
-const days = Math.floor(time / (1000 * 60 * 60 * 24));
+    this.daysEl = this.timerEl.querySelector('[data-value="days"]');
+    this.hoursEl = this.timerEl.querySelector('[data-value="hours"]');
+    this.minsEl = this.timerEl.querySelector('[data-value="mins"]');
+    this.secsEl = this.timerEl.querySelector('[data-value="secs"]');
+  }
 
-/*
- * Оставшиеся часы: получаем остаток от предыдущего расчета с помощью оператора
- * остатка % и делим его на количество миллисекунд в одном часе
- * (1000 * 60 * 60 = миллисекунды * минуты * секунды)
- */
-const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  getTimeRemaining() {
+    const time = Date.parse(this.targetDate) - Date.parse(new Date());
+    const days = Math.floor(time / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const mins = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+    const secs = Math.floor((time % (1000 * 60)) / 1000);
 
-/*
- * Оставшиеся минуты: получаем оставшиеся минуты и делим их на количество
- * миллисекунд в одной минуте (1000 * 60 = миллисекунды * секунды)
- */
-const mins = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+    return {
+      time,
+      days,
+      hours,
+      mins,
+      secs,
+    };
+  }
+  start() {
+    const timeinterval = setInterval(() => {
+      const timeLeft = this.getTimeRemaining();
+      this.render(timeLeft);
+      if (timeLeft.time <= 0) {
+        clearInterval(timeinterval);
+      }
+    }, 1000);
+  }
 
-/*
- * Оставшиеся секунды: получаем оставшиеся секунды и делим их на количество
- * миллисекунд в одной секунде (1000)
- */
-const secs = Math.floor((time % (1000 * 60)) / 1000);
+  render(timeLeft) {
+    this.daysEl.textContent = timeLeft.days;
+    this.hoursEl.textContent = timeLeft.hours;
+    this.minsEl.textContent = timeLeft.mins;
+    this.secsEl.textContent = timeLeft.secs;
+  }
+}
+
+new CountdownTimer({
+  selector: "#timer-1",
+  targetDate: new Date("Dec 31, 2024"),
+}).start();
