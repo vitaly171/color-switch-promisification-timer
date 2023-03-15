@@ -350,3 +350,10 @@
 .button:not(:last-child) {
   margin-bottom: 80px;
 }
+
+/* Timer */
+.timer {
+  width: 600px;
+  height: 400px;
+  background-color: #ff8108;
+}
