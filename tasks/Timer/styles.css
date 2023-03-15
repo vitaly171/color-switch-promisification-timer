@@ -22,19 +22,7 @@
   background: var(--main_color);
   font-family: "Fredoka One", cursive;
 }
-.button::before {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  right: 20px;
-  bottom: 0;
-  margin: auto 0;
-  width: 24px;
-  height: 24px;
-  background: var(--base_color);
-  transition: all ease 0.2s;
-}
+
 .button__wrapper {
   display: flex;
   justify-content: center;
@@ -122,11 +110,11 @@
   right: -5px;
 }
 
-.button--piyo::before {
+/* .button--piyo::before {
   clip-path: path(
     "M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8z"
   );
-}
+} */
 
 .button--piyo .button__wrapper::before,
 .button--piyo .button__wrapper::after {
@@ -335,6 +323,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
   width: 900px;
   height: 200px;
   background-color: #f4cf47;
