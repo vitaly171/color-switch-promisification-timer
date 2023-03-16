@@ -1,0 +1,31 @@
+body {
+  background-color: antiquewhite;
+}
+.btn {
+  margin-right: 5px;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+}
+.colorBox {
+  background-color: aliceblue;
+  margin-top: 20px;
+  width: 250px;
+  height: 250px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.thumbBtn {
+  display: flex;
+  justify-content: center;
+}
+
+.linkBtn {
+  text-decoration: none;
+}
